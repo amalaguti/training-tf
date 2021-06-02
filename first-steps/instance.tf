@@ -37,10 +37,10 @@ resource "azurerm_virtual_machine" "demo-instance" {
 }
 
 resource "azurerm_network_interface" "demo-instance" {
-  name                      = "${var.prefix}-instance1"
-  location                  = var.location
-  resource_group_name       = azurerm_resource_group.demo.name
-  network_security_group_id = azurerm_network_security_group.allow-ssh.id
+  name                = "${var.prefix}-instance1"
+  location            = var.location
+  resource_group_name = azurerm_resource_group.demo.name
+  # = azurerm_network_security_group.allow-ssh.id
 
   ip_configuration {
     name                          = "instance1"
@@ -55,4 +55,10 @@ resource "azurerm_public_ip" "demo-instance" {
   location            = var.location
   resource_group_name = azurerm_resource_group.demo.name
   allocation_method   = "Dynamic"
+}
+
+
+resource "azurerm_subnet_network_security_group_association" "nsg_assoc-1" {
+  subnet_id                 = azurerm_subnet.demo-internal-1.id
+  network_security_group_id = azurerm_network_security_group.allow-ssh.id
 }
