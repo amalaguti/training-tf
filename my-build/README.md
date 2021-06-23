@@ -1,5 +1,4 @@
-# First steps
-Create the basic resources to deploy an instance
+basic resources to deploy an instance
 resource group
 virtual network
 subnet
