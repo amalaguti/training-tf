@@ -15,7 +15,7 @@ variable "prefix" {
 
 variable "zones" {
   type    = list(string)
-  default = []
+  default = [1, 2, 3]
 }
 
 variable "ssh-source-address" {
