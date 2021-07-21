@@ -1,5 +1,6 @@
 variable "location" {
   type    = string
+  #default = "westeurope"
   default = "southcentralus"
 }
 
@@ -8,9 +9,14 @@ variable "subscription_id" {
   default = "ba11dd43-5df0-464d-868f-fd3a7503e680"
 }
 
+variable "failover_location" {
+  type    = string
+  default = "uksouth"
+}
+
 variable "prefix" {
   type    = string
-  default = "adrian-demo"
+  default = "demo"
 }
 
 variable "ssh-source-address" {
