@@ -42,3 +42,8 @@ resource "azurerm_network_security_group" "demo-nsg" {
     destination_address_prefix = "*"
   }
 }
+
+resource "azurerm_subnet_network_security_group_association" "nsg_assoc-1" {
+  subnet_id                 = azurerm_subnet.demo-internal-1.id
+  network_security_group_id = azurerm_network_security_group.allow-ssh.id
+}
